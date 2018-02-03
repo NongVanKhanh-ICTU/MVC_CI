@@ -1,0 +1,7 @@
+main .container .row .admin-title{
+	color: blue;
+	font-weight: bold;
+}
+main .container .row hr{
+	border: 1px solid #d41701;
+}
