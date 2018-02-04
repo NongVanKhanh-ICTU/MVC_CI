@@ -5,9 +5,10 @@ class V_Auth
 {
 	public function show_login()
 	{
-		if ($this->input->post('login')) {
-			echo "string";
-		}
 		include "res/login.php";
+	}
+	public function show_register()
+	{
+		include "res/register.php";
 	}
 }

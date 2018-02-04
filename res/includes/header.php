@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.php"><img src="imgs/logo.png" alt="LOGO"></a>
+			<a class="navbar-brand" href="index.php"><img src="../res/imgs/logo.png" alt="LOGO"></a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
