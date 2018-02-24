@@ -29,15 +29,19 @@
 					</div>
 					<div class="col-md-8">
 						<section class="header-category">
+							<?php 
+							foreach ($bien as $row) {
+							?>
 							<div class="col-md-3">
-								<a href="courses.php?category=1">
-									<div class="category mau1">
+								<a href="courses.php?category=<?php echo $row['id_cate']; ?>">
+									<div class="category mau<?php echo $row['stt_cate']; ?>">
 										<br>
-										<i class="fa fa-code fa-3x"></i>
-										<p>Facebook</p>
+										<i class="<?php echo $row['icon_cate']; ?> fa-3x"></i>
+										<p><?php echo $row['name_cate']; ?></p>
 									</div>
 								</a>
 							</div>
+							<?php } ?>
 						</section>
 					</div>
 				</div>

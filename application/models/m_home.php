@@ -5,15 +5,8 @@ class M_Home extends CI_Model
 {
 	public function load_all_cate()
 	{
-		$sql = "SELECT * FROM category WHERE 1";
+		$sql = "SELECT * FROM category WHERE 1 ORDER BY stt_cate ASC";
 		$query = $this->db->query($sql);
-		foreach ($query->result_array() as $row)
-		{
-			echo "<pre>";
-			echo $row['stt_cate'];
-			echo $row['id_cate'];
-			echo $row['name_cate'];
-			echo $row['icon_cate'];
-		}
+		return $query->result_array();
 	}
 }

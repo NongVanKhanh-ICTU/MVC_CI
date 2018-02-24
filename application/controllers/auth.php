@@ -10,17 +10,23 @@ class Auth extends CI_Controller {
 	}
 	public function login()
 	{
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		$this->form_validation->set_rules('pass', 'Mật khẩu', 'required|min_length[6]');
-		if($this->form_validation->run() == FALSE){
-			$this->load->view('v_auth');
-			$view = new V_Auth();
-			$view->show_login();
+		if ($this->session->has_userdata('id_user')) {
+			header('Location: ../home');
 		}
 		else{
-			$this->login_submit();
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+			$this->form_validation->set_rules('pass', 'Mật khẩu', 'required|min_length[6]');
+			if($this->form_validation->run() == FALSE){
+				$this->load->view('v_auth');
+				$view = new V_Auth();
+				$view->show_login();
+			}
+			else{
+				$this->login_submit();
+			}
 		}
+		
 	}
 	public function login_submit()
 	{
@@ -37,18 +43,24 @@ class Auth extends CI_Controller {
 	}
 	public function register()
 	{
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username', 'Họ và tên', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		$this->form_validation->set_rules('pass', 'Mật khẩu', 'required|min_length[6]');
-		if($this->form_validation->run() == FALSE){
-			$this->load->view('v_auth');
-			$view = new V_Auth();
-			$view->show_register();
+		if ($this->session->has_userdata('id_user')) {
+			header('Location: ../home');
 		}
 		else{
-			$this->register_submit();
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('username', 'Họ và tên', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+			$this->form_validation->set_rules('pass', 'Mật khẩu', 'required|min_length[6]');
+			if($this->form_validation->run() == FALSE){
+				$this->load->view('v_auth');
+				$view = new V_Auth();
+				$view->show_register();
+			}
+			else{
+				$this->register_submit();
+			}
 		}
+		
 		
 	}
 	public function register_submit()
@@ -64,5 +76,11 @@ class Auth extends CI_Controller {
 		else{
 			header('Location: register');
 		}
+	}
+	public function logout()
+	{
+		// Clear all SESSION value
+		$this->session->sess_destroy();
+		header('Location: ../home');
 	}
 }

@@ -13,11 +13,11 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('m_home');
 		$model = new M_Home();
-		$model->load_all_cate();
-		
-		//
-		// $this->load->view('v_home');
-		// $view = new V_Home();
-		// $view->index();
+		$bien = $model->load_all_cate();
+
+		$this->load->view('v_home');
+		$view = new V_Home();
+		$view->index($bien);
 	}
+	
 }
