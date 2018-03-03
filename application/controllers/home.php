@@ -13,11 +13,18 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('m_home');
 		$model = new M_Home();
-		$bien = $model->load_all_cate();
+		$allcate = $model->load_all_cate();
+		$slide_new = $model->load_slide_newest();
+		$slide_price = $model->load_slide_price();
+		$slide_random = $model->load_slide_rand();
+
+		$name_user=$this->session->userdata("name_user");
+		if ($name_user == NULL) {
+			$name_user = 'Đăng nhập'; 
+		}
 
 		$this->load->view('v_home');
 		$view = new V_Home();
-		$view->index($bien);
+		$view->index($allcate,$slide_new,$slide_price,$slide_random,$name_user);
 	}
-	
 }

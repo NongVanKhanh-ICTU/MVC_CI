@@ -11,4 +11,8 @@ class V_Auth
 	{
 		include "res/register.php";
 	}
+	public function show_info($data)
+	{
+		include "res/account.php";
+	}
 }

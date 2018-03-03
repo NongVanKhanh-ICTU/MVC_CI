@@ -30,7 +30,7 @@
 					<div class="col-md-8">
 						<section class="header-category">
 							<?php 
-							foreach ($bien as $row) {
+							foreach ($allcate as $row) {
 							?>
 							<div class="col-md-3">
 								<a href="courses.php?category=<?php echo $row['id_cate']; ?>">
@@ -57,186 +57,54 @@
 				<div id="home" class="tab-pane fade in active">
 					<div class="slide">
 						<ul id="ul1">
+							<?php 
+							foreach ($slide_new as $row) {
+							?>
 							<li>
 								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
+									<img src="res/imgs/<?php echo $row['thumb_cs']; ?>" alt="">
+									<h5><?php echo $row['ten_cs']; ?></h5>
+									<label class="author"><?php echo $row['tc_cs']; ?></label>
+									<label class="price"><?php echo $row['gia_cs']; ?></label>
 								</a>
 							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>
 				<div id="menu1" class="tab-pane fade">
 					<div class="slide">
 						<ul id="ul2">
+							<?php 
+							foreach ($slide_price as $row) {
+							?>
 							<li>
 								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
+									<img src="res/imgs/<?php echo $row['thumb_cs']; ?>" alt="">
+									<h5><?php echo $row['ten_cs']; ?></h5>
+									<label class="author"><?php echo $row['tc_cs']; ?></label>
+									<label class="price"><?php echo $row['gia_cs']; ?></label>
 								</a>
 							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>
 				<div id="menu2" class="tab-pane fade">
 					<div class="slide">
 						<ul id="ul3">
+							<?php 
+							foreach ($slide_random as $row) {
+							?>
 							<li>
 								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
+									<img src="res/imgs/<?php echo $row['thumb_cs']; ?>" alt="">
+									<h5><?php echo $row['ten_cs']; ?></h5>
+									<label class="author"><?php echo $row['tc_cs']; ?></label>
+									<label class="price"><?php echo $row['gia_cs']; ?></label>
 								</a>
 							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
-							<li>
-								<a href="" class="thumbnail">
-									<img src="res/imgs/excel.png" alt="">
-									<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-									<label class="author">Nguyễn Danh Tú</label>
-									<label class="price">599000đ</label>
-								</a>
-							</li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>
@@ -323,7 +191,7 @@
 							<h3>để khám phá đầy đủ tính năng của Edumall</h3><br><br><br>
 						</div>
 						<div class="trai col-md-7"><br>
-							<form action="" method="POST" role="form">
+							<form action="auth/register" method="POST" role="form">
 								<legend>ĐĂNG KÝ TÀI KHOẢN</legend>
 								<h4>Đăng ký bằng mạng xã hội</h4>
 								<br>
@@ -335,17 +203,17 @@
 								<h4>Hoặc điền thông tin</h4>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-									<input type="text" class="form-control" placeholder="Họ và tên">
+									<input type="text" class="form-control" name="username" id="" placeholder="Họ và tên">
 								</div><br>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-									<input type="email" class="form-control" placeholder="Email">
+									<input type="text" class="form-control" name="email" id="email" placeholder="Email">
 								</div><br>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-									<input type="password" class="form-control" placeholder="Mật Khẩu">
+									<input type="password" class="form-control" name="pass" id="pass" placeholder="Mật khẩu">
 								</div><br>
-								<button type="submit" class="btn btn-default submit">ĐĂNG KÝ</button>
+								<button type="submit" class="btn btn-default submit" name="register" value="register">ĐĂNG KÝ</button>
 							</form>
 						</div>
 						<div class="phai col-md-5">

@@ -8,6 +8,40 @@ class Auth extends CI_Controller {
 		$this->load->helper(array('url', 'form'));	
 		$this->load->library("session");
 	}
+	public function index()
+	{
+		if ($this->session->has_userdata('id_user')) {
+			$this->load->model('m_auth');
+			$model = new M_Auth();
+
+			$this->load->view('v_auth');
+			$view = new V_Auth();
+
+			$data = $model->show_once();
+
+			
+			$view->show_info($data);
+
+			if ($this->input->post('changeinfo') == 'changeinfo') {
+				$id = $this->session->userdata('id_user');
+				$name = $this->input->post('name_user');
+				$job = $this->input->post('job_user');
+				$about = $this->input->post('about_user');
+
+				$model->changeinfo($id, $name, $job, $about);
+			}
+			if ($this->input->post('changepass') == 'changepass') {
+				$id = $this->session->userdata('id_user');
+				$oldpass = md5($this->input->post('oldpass'));
+				$newpass = md5($this->input->post('newpass'));
+
+				$model->changepass($id, $oldpass, $newpass);
+			}
+		}
+		else{
+			header('Location: auth/login');
+		}
+	}
 	public function login()
 	{
 		if ($this->session->has_userdata('id_user')) {
@@ -74,13 +108,13 @@ class Auth extends CI_Controller {
 			$model->register($username, $email, $pass);
 		}
 		else{
-			header('Location: register');
+			redirect(base_url('auth/register'));
 		}
 	}
 	public function logout()
 	{
 		// Clear all SESSION value
 		$this->session->sess_destroy();
-		header('Location: ../home');
+		redirect(base_url('auth/login'));
 	}
 }

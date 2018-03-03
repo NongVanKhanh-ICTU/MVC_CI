@@ -251,6 +251,11 @@ main .banner .TOP .text-banner h3{
 main .register-index{
 	text-align: center;
 }
+main .register-index .register-title h1{
+	color: #009688;
+    text-shadow: 1px 1px 5px #009688;
+    font-weight: bold;
+}
 main .register-index .trai{
 	height: 500px;
 	box-shadow: 5px 5px 5px #888888;

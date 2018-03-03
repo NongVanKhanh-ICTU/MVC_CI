@@ -3,12 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class V_Home
 {
-	public function index($bien)
+	public function index($allcate,$slide_new,$slide_price,$slide_random,$name_user)
 	{
 		include 'res/index.php';
-		// foreach ($bien as $row) {
-		// 	print_r($row);
-		// }
 	}
 	
 }

@@ -27,11 +27,12 @@ class M_Auth extends CI_Model
 					'name_user' => $row['name_user'],
 					'job_user' => $row['job_user'],
 					'about_user' => $row['about_user'],
+					'avatar_user' => $row['avatar_user'],
 					'permission_user' => $row['permission_user'],
 					);
 			}
 				$this->session->set_userdata($session_user);
-				header('Location: ../home');
+				redirect(base_url('auth'));
 		}
 		else{
 			echo "<script type='text/javascript'>alert('Tài khoản hoặc mật khẩu không đúng! Vui lòng nhập lại!');</script>";
@@ -62,5 +63,44 @@ class M_Auth extends CI_Model
 			$view = new V_Auth();
 			$view->show_register();
 		}
+	}
+	public function show_once()
+	{
+		$id = $this->session->userdata('id_user');
+		$sql = "SELECT * FROM user WHERE id_user = '$id'";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+	public function changeinfo($id, $name, $job, $about)
+	{
+		$sql = "UPDATE user SET name_user = '$name', job_user = '$job', about_user = '$about' WHERE id_user = '$id'";
+		$query = $this->db->query($sql);
+		echo "<script type='text/javascript'>alert('Đổi thông tin thành công!');</script>";
+		echo "<meta http-equiv='refresh' content='0' />";
+	}
+	public function changepass($id, $oldpass, $newpass)
+	{
+		if (strlen($oldpass <= 6) || strlen($newpass <= 6)) {
+			echo "<script type='text/javascript'>alert('Vui lòng nhập mật khẩu lớn hơn 6 ký tự!');</script>";
+		}
+		else{
+			$sql = "SELECT count(id_user) FROM user WHERE id_user = '$id' AND pass_user ='$oldpass'";
+			$query = $this->db->query($sql);
+			foreach ($query->result_array() as $row)
+			{
+				$count = $row['count(id_user)'];
+			}
+			if ($count == 1) {
+				$sql = "UPDATE user SET pass_user = '$newpass' WHERE id_user = '$id' ";
+				$query = $this->db->query($sql);
+				echo "<script type='text/javascript'>alert('Đổi mật khẩu thành công!');</script>";
+				echo "<meta http-equiv='refresh' content='0' />";
+			}
+			else{
+				echo "<script type='text/javascript'>alert('Sai mật khẩu!');</script>";
+				echo "<meta http-equiv='refresh' content='0' />";
+			}
+		}
+		
 	}
 }

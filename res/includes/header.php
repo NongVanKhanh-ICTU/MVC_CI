@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.php"><img src="../res/imgs/logo.png" alt="LOGO"></a>
+			<a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="res/imgs/logo.png" alt="LOGO"></a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
@@ -16,12 +16,12 @@
 				</li>
 			</ul>
 			<div class="navbar-form navbar-left">
-				<form action="courses.php" method="GET" role="search">
+				<form action="<?php echo base_url('courses/search'); ?>" method="GET" role="search">
 					<div class="form-group">
-						<input type="text" class="form-control search" placeholder="Search" name="search">
+						<input type="text" class="form-control search" placeholder="Search" name="keyword">
 					</div>
-					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-					<a href="courses.php"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-briefcase"></i>Tất Cả Khoá Học</button></a>
+					<button type="submit" class="btn btn-default" name="search" value="search"><i class="glyphicon glyphicon-search"></i></button>
+					<a href="<?php echo base_url('courses'); ?>"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-briefcase"></i>Tất Cả Khoá Học</button></a>
 					<a href="my-cart.php">
 						<button type="button" class="btn btn-default">
 							<i class="glyphicon glyphicon-shopping-cart"></i>Giỏ Hàng ()
@@ -31,7 +31,7 @@
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="account">
-					<a href="account.php"><i class="fa fa-user-circle-o"></i>Chưa có tên</a>
+					<a href="auth"><i class="fa fa-user-circle-o"></i>Tài Khoản</a>
 				</li>
 			</ul>
 		</div>
