@@ -56,22 +56,6 @@ class Courses extends CI_Controller {
 		$fee = array('free' => $model->row_free(), 'fee' => $model->row_fee(), ); 
 		$this->load->view('v_courses'); 
 		$view = new V_Courses();
-		$view->index($query_poster, $paginator, $category, $fee);
-	}
-	public function search()
-	{
-		if ($this->input->get('search') == 'search') {
-			echo "string";
-		}
-		else echo "none";
-		die();
-		$this->load->model('m_search');
-		$model = new M_Search();
-		$query_poster = $model->show_with_key($key, $limit);
-		$countrow = $model->countrow();
-
-		// $this->load->view('v_courses'); 
-		// $view = new V_Courses();
-		// $view->index($query_poster, $paginator, $category, $fee);
+		$view->index($countrow, $query_poster, $paginator, $category, $fee);
 	}
 }

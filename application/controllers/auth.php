@@ -39,13 +39,13 @@ class Auth extends CI_Controller {
 			}
 		}
 		else{
-			header('Location: auth/login');
+			redirect(base_url('auth/login'));
 		}
 	}
 	public function login()
 	{
 		if ($this->session->has_userdata('id_user')) {
-			header('Location: ../home');
+			redirect(base_url('auth'));
 		}
 		else{
 			$this->load->library('form_validation');
@@ -72,13 +72,13 @@ class Auth extends CI_Controller {
 			$model->login($email, $pass);
 		}
 		else{
-			header('Location: login');
+			redirect(base_url('auth/login'));
 		}
 	}
 	public function register()
 	{
 		if ($this->session->has_userdata('id_user')) {
-			header('Location: ../home');
+			redirect(base_url('auth'));
 		}
 		else{
 			$this->load->library('form_validation');

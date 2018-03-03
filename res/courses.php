@@ -48,7 +48,7 @@
 								</ul>
 							</div>
 							<a href="courses.php"><button type="button" class="btn btn-default">Huỷ Lọc<i class="glyphicon glyphicon-remove-sign"></i></button></a>
-							<span class="badge pull-right">Chúng tôi có 8 Khoá Học</span>
+							<span class="badge pull-right">Chúng tôi có <?php echo $countrow; ?> Khoá Học</span>
 						</div>
 					</form>     
 				</div>
@@ -154,8 +154,8 @@
 
 		</footer>
 		<!-- Script -->
-		<script src="../res/js/webjs.js"></script>
-		<script src="../res/bs/js/jquery.js"></script>
-		<script src="../res/bs/js/bootstrap.min.js"></script>
+		<script src="<?php echo base_url(); ?>res/js/webjs.js"></script>
+		<script src="<?php echo base_url(); ?>res/bs/js/jquery.js"></script>
+		<script src="<?php echo base_url(); ?>res/bs/js/bootstrap.min.js"></script>
 	</body>
 	</html>
