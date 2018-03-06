@@ -33,7 +33,7 @@
 							foreach ($allcate as $row) {
 							?>
 							<div class="col-md-3">
-								<a href="courses.php?category=<?php echo $row['id_cate']; ?>">
+								<a href="<?php echo base_url('courses/category/').$row['id_cate'] ?>">
 									<div class="category mau<?php echo $row['stt_cate']; ?>">
 										<br>
 										<i class="<?php echo $row['icon_cate']; ?> fa-3x"></i>
@@ -61,7 +61,7 @@
 							foreach ($slide_new as $row) {
 							?>
 							<li>
-								<a href="" class="thumbnail">
+								<a href="<?php echo base_url('display?id=').$row['id_cs']; ?>" class="thumbnail">
 									<img src="res/imgs/<?php echo $row['thumb_cs']; ?>" alt="">
 									<h5><?php echo $row['ten_cs']; ?></h5>
 									<label class="author"><?php echo $row['tc_cs']; ?></label>
@@ -79,7 +79,7 @@
 							foreach ($slide_price as $row) {
 							?>
 							<li>
-								<a href="" class="thumbnail">
+								<a href="<?php echo base_url('display?id=').$row['id_cs']; ?>" class="thumbnail">
 									<img src="res/imgs/<?php echo $row['thumb_cs']; ?>" alt="">
 									<h5><?php echo $row['ten_cs']; ?></h5>
 									<label class="author"><?php echo $row['tc_cs']; ?></label>
@@ -97,7 +97,7 @@
 							foreach ($slide_random as $row) {
 							?>
 							<li>
-								<a href="" class="thumbnail">
+								<a href="<?php echo base_url('display?id=').$row['id_cs']; ?>" class="thumbnail">
 									<img src="res/imgs/<?php echo $row['thumb_cs']; ?>" alt="">
 									<h5><?php echo $row['ten_cs']; ?></h5>
 									<label class="author"><?php echo $row['tc_cs']; ?></label>
@@ -122,13 +122,13 @@
 						<div class="slide">
 							<ul id="ul-banner">
 								<li>
-									<a href=""><img src="res/imgs/banner-big1.jpg" alt=""></a>
+									<a href="<?php echo base_url('course'); ?>"><img src="res/imgs/banner-big1.jpg" alt=""></a>
 								</li>
 								<li>
-									<a href=""><img src="res/imgs/banner-big2.jpg" alt=""></a>
+									<a href="<?php echo base_url('course'); ?>"><img src="res/imgs/banner-big2.jpg" alt=""></a>
 								</li>
 								<li>
-									<a href=""><img src="res/imgs/banner-big3.jpg" alt=""></a>
+									<a href="<?php echo base_url('course'); ?>"><img src="res/imgs/banner-big3.jpg" alt=""></a>
 								</li>
 							</ul>
 						</div>
@@ -139,14 +139,14 @@
 						</div>
 					</div>
 					<div class="col-md-4 phai">
-						<a href=""><img src="res/imgs/banner-small1.png" alt=""></a>
-						<a href=""><img src="res/imgs/banner-small2.png" alt=""></a>
+						<a href="<?php echo base_url('course/category/ptbt'); ?>"><img src="res/imgs/banner-small1.png" alt=""></a>
+						<a href="<?php echo base_url('course/category/nn'); ?>"><img src="res/imgs/banner-small2.png" alt=""></a>
 					</div>
 				</div>
 				<br><br>
 				<div class="row TOP">
 					<div class="col-md-4">
-						<a href="">
+						<a href="<?php echo base_url('course/category/thvp'); ?>">
 							<div class="img-banner">
 								<img src="res/imgs/banner-top1.png" alt="">
 							</div>
@@ -157,7 +157,7 @@
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="">
+						<a href="<?php echo base_url('course/category/ptbt'); ?>">
 							<div class="img-banner">
 								<img src="res/imgs/banner-top2.png" alt="">
 							</div>
@@ -168,7 +168,7 @@
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="">
+						<a href="<?php echo base_url('course/category/mkt'); ?>">
 							<div class="img-banner">
 								<img src="res/imgs/banner-top3.png" alt="">
 							</div>

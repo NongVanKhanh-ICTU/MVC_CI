@@ -29,6 +29,7 @@ class M_Auth extends CI_Model
 					'about_user' => $row['about_user'],
 					'avatar_user' => $row['avatar_user'],
 					'permission_user' => $row['permission_user'],
+					'coin_user' => $row['coin_user'],
 					);
 			}
 				$this->session->set_userdata($session_user);

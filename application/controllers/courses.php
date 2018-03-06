@@ -96,4 +96,9 @@ class Courses extends CI_Controller {
 		$this->session->unset_userdata('filter');
 		redirect(base_url('courses'));
 	}
+	public function category($value='')
+	{
+		$this->session->set_userdata("keyword", $value);
+		redirect(base_url('courses'));
+	}
 }

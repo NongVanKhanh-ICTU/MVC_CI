@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
 		<div class="trai col-md-5">
-			<img src="imgs/logo-svg.svg" alt="" class="logo"><br><br>
+			<img src="<?php echo base_url('res/') ?>imgs/logo-svg.svg" alt="" class="logo"><br><br>
 			<p>Đây là bản sao được sao chép từ trang <a href=""><b>Edumall.vn</b></a>. Sử dụng với mục đích tạo ra 1 bản sao mới và độc lập! Hoàn toàn không phải trang <b>GIẢ MẠO</b> để lừa đảo!</p><br><br>
-			<img src="imgs/bct.png" alt="">
+			<img src="<?php echo base_url('res/') ?>imgs/bct.png" alt="">
 		</div>
 		<div class="giua col-md-2">
 			<h3>Về Edumall</h3><br>
@@ -33,8 +33,8 @@
 			</div>
 			<div class="app-mobile">
 				<p>Tải ngay App Edumall</p>
-				<a href=""><img src="imgs/Apple.svg" alt=""></a>
-				<a href=""><img src="imgs/Android.svg" alt=""></a>
+				<a href=""><img src="<?php echo base_url('res/') ?>imgs/Apple.svg" alt=""></a>
+				<a href=""><img src="<?php echo base_url('res/') ?>imgs/Android.svg" alt=""></a>
 			</div>
 		</div>
 	</div>

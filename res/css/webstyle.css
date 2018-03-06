@@ -100,10 +100,9 @@ main .topic .nav-tabs li a{
 }
 main .topic .nav-tabs>li.active>a, main .topic .nav-tabs>li.active>a:hover, main .topic .nav-tabs>li.active>a:focus{
 	border: none;
-	color: #555;
-	background-color: #eee;
+	color: #D41701;
 	background-color: transparent;
-	border-radius: 8px;
+	box-shadow: 0px 3px #D41701;
 }
 main .topic .tab-content{
 
