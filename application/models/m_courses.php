@@ -6,22 +6,26 @@ class M_Courses extends CI_Model
         parent::__construct();
     }
 
-    public function showall($limit)
+    public function showall($limit, $keyword, $filter)
     {
     	$offset=$this->uri->segment(2);    
 
     	$this->db->select('*');                  
-		$this->db->from('course');
-		$this->db->order_by('id_cs asc');          
+        $this->db->from('course');
+		$this->db->like('ten_cs', $keyword);
+        $this->db->or_like('tc_cs', $keyword);
+        $this->db->or_like('id_cate', $keyword);
+		$this->db->order_by($filter);          
 		$this->db->limit($limit, $offset);
 
 		$query_poster = $this->db->get();
 		return $query_poster;
     }
     
-    public function countrow()
+    public function countrow($keyword)
     {
-    	return $this->db->count_all('course');
+        $this->db->from('course')->like('ten_cs', $keyword)->or_like('tc_cs', $keyword)->or_like('id_cate', $keyword);
+    	return $this->db->count_all_results();
     }
 
     # Count each catelogy
@@ -76,11 +80,5 @@ class M_Courses extends CI_Model
     {
         $this->db->from('course')->where('gia_cs !=', 0);
         return $this->db->count_all_results();
-    }
-
-    // For search page
-    public function show_with_key($key)
-    {
-        
     }
 }

@@ -1,0 +1,43 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Display extends CI_Controller {
+
+	public function __construct() 
+	{
+		parent::__construct();
+		$this->load->helper(array('url', 'form'));	
+		$this->load->library("session");
+		// Kiểm tra đăng nhập
+		if ($this->session->has_userdata('id_user') == false) {
+			redirect(base_url('auth/login'));
+		}
+	}
+	public function index()
+	{
+		if ($this->input->get('id')) {
+			$id = $this->input->get('id');
+		}
+		else{
+			redirect(base_url('courses'));
+		}
+		# Add to cart (My cart)
+		$status = '';
+		if ($this->input->post('add_to') == 'cart') {
+			$data['id_cs'] = $this->input->post('id_cs');
+			$data['id_user'] = $this->session->userdata('id_user');
+			$this->load->model('m_display');
+			$model_cart = new M_Display();
+			$model_cart->add_to_cart($data);
+			$status = "<div class='alert alert-success' style='margin: 0;'><strong>Thành công!</strong> Sản phẩm đã được thêm vào giỏ hàng!<br>Vui lòng đi tới <a href='cart'>giỏ hàng</a> để thanh toán!</div>";
+		}
+
+		$this->load->model('m_display');
+		$model = new M_Display();
+		$result = $model->show_once_course($id);
+		
+		$this->load->view('v_display');
+		$view = new V_Display();
+		$view->index($result, $status);
+	}
+}

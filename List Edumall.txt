@@ -1,6 +1,7 @@
 ﻿- Sửa khoá học trong ADMIN
 - Chưa nghĩ ra cách quản lý khoá học của khách hàng.
 - Phải có comment
+- Số lần xem, số lần order
 
 Alert PHP
 // This is in the PHP file and sends a Javascript alert to the client

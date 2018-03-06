@@ -106,6 +106,7 @@ class Auth extends CI_Controller {
 			$this->load->model('m_auth');
 			$model = new M_Auth();
 			$model->register($username, $email, $pass);
+			echo "<meta http-equiv='refresh' content='0; url=".base_url('auth/register')."' />";
 		}
 		else{
 			redirect(base_url('auth/register'));

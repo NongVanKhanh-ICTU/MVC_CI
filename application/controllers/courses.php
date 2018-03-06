@@ -13,14 +13,46 @@ class Courses extends CI_Controller {
 	}
 	public function index()
 	{
+		// Lọc
+		if ($this->input->post('filter') == 'filter') {
+			$name = $this->input->post('name');
+			$price = $this->input->post('price');
+			if ($name != '' && $price != '') {
+				$filter = $name.', '.$price;
+			}
+			else{
+				$filter = $name.$price;
+			}
+			$this->session->set_userdata("filter", "$filter");
+		}
+		else{
+			if ($this->session->has_userdata('filter')) {
+				$filter = $this->session->userdata('filter');
+			} else {
+				$filter = '';
+			}
+		}
+		// die();
+		// Tìm kiếm
+		if ($this->input->post('search') == 'search') {
+			$keyword = $this->input->post('keyword');
+			$this->session->set_userdata("keyword", "$keyword");
+		}
+		else{
+			if ($this->session->has_userdata('keyword')) {
+				$keyword = $this->session->userdata('keyword');
+			} else {
+				$keyword = '';
+			}
+		}
 //Số bài trong 1 trang
-		$limit= 9;
+		$limit= 6;
 //Số bài trong 1 trang
 
 		$this->load->model('m_courses');
 		$model = new M_Courses();
-		$query_poster = $model->showall($limit);
-		$countrow = $model->countrow();
+		$query_poster = $model->showall($limit, $keyword, $filter);
+		$countrow = $model->countrow($keyword);
 // pagination        
 		$config['base_url'] = base_url() . '/courses/';
 		$config['total_rows'] = $countrow;
@@ -56,6 +88,12 @@ class Courses extends CI_Controller {
 		$fee = array('free' => $model->row_free(), 'fee' => $model->row_fee(), ); 
 		$this->load->view('v_courses'); 
 		$view = new V_Courses();
-		$view->index($countrow, $query_poster, $paginator, $category, $fee);
+		$view->index($countrow, $query_poster, $paginator, $category, $fee, $keyword, $filter);
+	}
+	public function cancel_search()
+	{
+		$this->session->unset_userdata('keyword');
+		$this->session->unset_userdata('filter');
+		redirect(base_url('courses'));
 	}
 }

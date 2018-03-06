@@ -19,38 +19,38 @@
 			<div class="row"><br><br>
 				<h1>Khoá học của chúng tôi</h1>
 				<hr>
+				<h3><?php if ($keyword != '') { echo 'Bạn đang tìm kiếm với từ khóa - '.$keyword.' -'; }?></h3>
 				<div class="form locsp">
-					<form action="courses.php" method="POST" role="form">
+					<form action="<?php echo base_url('courses'); ?>" method="POST" role="form">
 						<div class="form-group">
 							<label for="">Lọc Sản Phẩm:</label>
-							<div class="btn-group">
-								<button type="button" class="btn btn-default">Tên</button>
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li class="divider"></li>
-									<li><a href="courses.php?filter=AZ" name="az">A -&gt; Z<i class="glyphicon glyphicon-sort-by-alphabet"></i></a></li>
-									<li><a href="courses.php?filter=ZA" name="az">Z -&gt; A<i class="glyphicon glyphicon-sort-by-alphabet-alt"></i></a></li>
-									<li class="divider"></li>
-								</ul>
+							<div class="form-group">
+								<div class="col-sm-2">
+									<select name="name" class="form-control">
+										<option value="" selected="">Theo tên</option>
+										<option value="ten_cs asc">A => Z</option>
+										<option value="ten_cs desc">Z => A</option>
+									</select>
+								</div>
+								<div class="col-sm-2">
+									<select name="price" class="form-control">
+										<option value="" selected="">Theo giá</option>
+										<option value="gia_cs asc">Thấp => Cao</option>
+										<option value="gia_cs desc">Cao => Thấp</option>
+									</select>
+								</div>
+								<div class="col-md-1">
+									<button type="submit" class="btn btn-default" name="filter" value="filter" title="Vui lòng chỉ chọn một loại lọc">Lọc<i class="glyphicon glyphicon-search"></i></button>
+								</div>
+								<div class="col-md-1">
+									<a href="<?php echo base_url('courses/cancel_search'); ?>"><button type="button" class="btn btn-default">Huỷ Lọc<i class="glyphicon glyphicon-remove-sign"></i></button></a>
+								</div>
+								<div class="col-md-6">
+									<span class="badge pull-right">Chúng tôi có <?php echo $countrow; ?> Khoá Học</span>
+								</div>
 							</div>
-							<div class="btn-group">
-								<button type="button" class="btn btn-default">Giá</button>
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li class="divider"></li>
-									<li><a href="courses.php?filter=price-low">Thấp -&gt; Cao<i class="glyphicon glyphicon-sort-by-order"></i></a></li>
-									<li><a href="courses.php?filter=price-high">Cao -&gt; Thấp<i class="glyphicon glyphicon-sort-by-order-alt"></i></a></li>
-									<li class="divider"></li>
-								</ul>
-							</div>
-							<a href="courses.php"><button type="button" class="btn btn-default">Huỷ Lọc<i class="glyphicon glyphicon-remove-sign"></i></button></a>
-							<span class="badge pull-right">Chúng tôi có <?php echo $countrow; ?> Khoá Học</span>
 						</div>
-					</form>     
+					</form><br><br><br>
 				</div>
 				<div class="course col-md-9">
 					<table>
@@ -65,11 +65,11 @@
 								?>
 								<td class="col-md-4">
 									<div class="thumbnail">
-										<a href="display.php?id=<?php echo $row->id_cs; ?>">
+										<a href="<?php echo base_url('display?id=').$row->id_cs; ?>">
 											<img src="<?php echo base_url(); ?>res/imgs/<?php echo $row->thumb_cs; ?>" alt="">
 										</a>
 										<div class="caption">
-											<a href="display.php?id=<?php echo $row->id_cs; ?>"><h3><?php echo $row->ten_cs; ?></h3></a>
+											<a href="<?php echo base_url('display?id=').$row->id_cs; ?>"><h3><?php echo $row->ten_cs; ?></h3></a>
 											<p class="author">
 												<?php echo $row->tc_cs; ?>
 											</p>
@@ -97,7 +97,7 @@
 						foreach ($category as $key => $value) {
 						?>
 						<li>
-							<a href="courses.php?category=<?php echo $value['key']; ?>">
+							<a href="<?php echo base_url('courses/').$value['key']; ?>">
 								<span class="badge pull-right"><?php echo $value['count']; ?></span>
 								<?php echo $value['name']; ?>
 							</a>
@@ -116,33 +116,6 @@
 							<a href="courses.php?policy=tra-phi">
 								<span class="badge pull-right"><?php echo $fee['fee']; ?></span>
 								Trả Phí
-							</a>
-						</li>
-					</ul>
-					<h4>Theo Giảng Viên</h4>
-					<ul class="nav nav-pills nav-stacked">
-						<li>
-							<a href="courses.php?teacher=Topica Uni">
-								<span class="badge pull-right">0</span>
-								Topica Uni
-							</a>
-						</li>
-						<li>
-							<a href="courses.php?teacher=Nguyễn Đức Việt">
-								<span class="badge pull-right">0</span>
-								Nguyễn Đức Việt
-							</a>
-						</li>
-						<li>
-							<a href="courses.php?teacher=Lê Thẩm Dương">
-								<span class="badge pull-right">0</span>
-								Lê Thẩm Dương
-							</a>
-						</li>
-						<li>
-							<a href="courses.php?teacher=Khác">
-								<span class="badge pull-right">0</span>
-								Khác
 							</a>
 						</li>
 					</ul>

@@ -45,6 +45,11 @@
 									<textarea name="about_user" id="" class="form-control" rows="3"><?php echo $row['about_user']; ?></textarea>
 								</div>
 								<button type="submit" name="changeinfo" value="changeinfo" class="btn btn-danger" style="float: right;">Lưu thay đổi</button>
+								<?php 
+									if ($row['permission_user'] == 3) {
+										echo "<a href='".base_url('admin_panel')."'><button type='button' class='btn btn-success'>Admin Panel</button></a>";
+									}
+								 ?>
 								<a href="auth/logout"><button type="button" class="btn btn-danger" onclick="return confirm('Bạn thực sự muốn đăng xuất?')">ĐĂNG XUẤT</button></a>
 							</div>
 						</form>

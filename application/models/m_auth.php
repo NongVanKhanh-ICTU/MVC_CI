@@ -51,17 +51,11 @@ class M_Auth extends CI_Model
 		}
 		if ($count == 1) {
 			echo "<script type='text/javascript'>alert('Tài khoản đã bị trùng! Vui lòng nhập lại!');</script>";
-			$this->load->view('v_auth');
-			$view = new V_Auth();
-			$view->show_register();
 		}
 		else{
 			$sql = "INSERT INTO user(name_user, pass_user, email_user) VALUES ('$username', '$pass', '$email')";
 			$query = $this->db->query($sql);
 			echo "<script type='text/javascript'>alert('Chúc mừng bạn đã đăng ký thành công! Hãy đăng nhập để trải nghiệm nào!');</script>";
-			$this->load->view('v_auth');
-			$view = new V_Auth();
-			$view->show_register();
 		}
 	}
 	public function show_once()
