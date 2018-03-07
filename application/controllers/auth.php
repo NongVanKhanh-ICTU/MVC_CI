@@ -10,6 +10,10 @@ class Auth extends CI_Controller {
 	}
 	public function index()
 	{
+		// Show owner courses
+		$this->load->model('m_auth');
+		$model = new M_Auth();
+		$owner = $model->show_owner_course();
 		if ($this->session->has_userdata('id_user')) {
 			$this->load->model('m_auth');
 			$model = new M_Auth();
@@ -20,7 +24,7 @@ class Auth extends CI_Controller {
 			$data = $model->show_once();
 
 			
-			$view->show_info($data);
+			$view->show_info($data, $owner);
 
 			if ($this->input->post('changeinfo') == 'changeinfo') {
 				$id = $this->session->userdata('id_user');
@@ -117,5 +121,12 @@ class Auth extends CI_Controller {
 		// Clear all SESSION value
 		$this->session->sess_destroy();
 		redirect(base_url('auth/login'));
+	}
+	public function money($number = '0')
+	{
+		$this->load->model('m_auth');
+		$model = new M_Auth();
+		$model->add_money($number);
+		redirect(base_url('auth'));
 	}
 }

@@ -59,7 +59,7 @@
 	<main>
 		<div class="container">
 			<div class="row">
-				<h2>Trang Chỉnh Sửa Thông Tin Khoá Học Của Admin</h2><hr>
+				<h2>Trang Chỉnh Sửa Thông Tin Khoá Học Của Giáo Viên</h2><hr>
 				<div class="col-md-10">
 					<?php 
 						foreach ($result as $key => $value) {
@@ -73,10 +73,6 @@
 						<div class="form-group">
 							<label for="">Thông tin thêm</label>
 							<input type="text" class="form-control" name="info_cs" id="" placeholder="Thông tin thêm" value="<?php echo $value["info_cs"]; ?>">
-						</div>
-						<div class="form-group">
-							<label for="">Giảng viên</label>
-							<input type="text" class="form-control" name="tc_cs" id="" placeholder="Giảng viên" value="<?php echo $value["tc_cs"]; ?>">
 						</div>
 						<div class="form-group">
 							<label for="">Mô tả</label>
@@ -104,7 +100,7 @@
 						</div>
 						<div class="form-group">
 							<label for="">Link khóa học</label>
-							<input type="text" class="form-control" name="time_cs" id="" placeholder="Link khóa học" value="<?php echo $value["playlist_key"]; ?>">
+							<input type="text" class="form-control" name="playlist" id="" placeholder="Link khóa học" value="<?php echo $value["playlist_key"]; ?>">
 						</div>
 						<!-- <div class="form-group">
 							<label for="">Ảnh</label>
@@ -115,7 +111,7 @@
 					<?php } ?>
 				</div>
 				<div class="col-md-2">
-					<?php include "res/includes/more-tool-admin.php" ?>
+					<?php include "res/includes/more-tool-teacher.php" ?>
 				</div>
 			</div>
 		</div>

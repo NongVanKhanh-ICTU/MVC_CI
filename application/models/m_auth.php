@@ -66,6 +66,14 @@ class M_Auth extends CI_Model
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
+	public function show_owner_course()
+	{
+		#SELECT * FROM course WHERE id_cs IN (SELECT id_cs FROM own WHERE id_user = $id_user)
+		$id_user = $this->session->userdata('id_user');
+		$this->db->where('id_cs IN (SELECT id_cs FROM own WHERE id_user = '.$id_user.')', NULL, FALSE);
+		$query = $this->db->get('course');
+		return $query->result_array();
+	}
 	public function changeinfo($id, $name, $job, $about)
 	{
 		$sql = "UPDATE user SET name_user = '$name', job_user = '$job', about_user = '$about' WHERE id_user = '$id'";
@@ -96,6 +104,13 @@ class M_Auth extends CI_Model
 				echo "<meta http-equiv='refresh' content='0' />";
 			}
 		}
-		
+	}
+	public function add_money($number)
+	{
+		$id = $this->session->userdata('id_user');
+		$this->db->set('coin_user', $number);
+		$this->db->where('id_user', $id);
+		$this->db->update('user');
+		$this->session->set_userdata('coin_user', $number);
 	}
 }

@@ -29,7 +29,22 @@
 						<div class="col-md-4 avatar" align="center">
 							<img src="res/imgs/<?php echo $row['avatar_user']; ?>" alt="">
 							<br>
-							<input type="file" accept=".png, .jpg, .jpeg" name="image" class="form-control" style="width: 80%;">
+							<input type="file" accept=".png, .jpg, .jpeg" name="image" class="form-control" style="width: 80%;"><br>
+							<?php 
+								if ($row['permission_user'] == 3) {
+									echo "Status: <b>Administrator</b>";
+								}
+								if ($row['permission_user'] == 2) {
+									echo "Status: <b>Teacher</b>";
+								}
+								if ($row['permission_user'] == 1) {
+									echo "Status: <b>Actived</b>";
+								}
+								if ($row['permission_user'] == 0) {
+									echo "Status: <b>Non-active</b>";
+								}
+								echo '<br>Số tiền: <b>'.$_SESSION['coin_user'].'</b>đ';
+							?>
 						</div>
 						<form action="" method="POST" role="form" enctype="multipart/form-data">
 							<div class="col-md-8">
@@ -45,12 +60,18 @@
 									<textarea name="about_user" id="" class="form-control" rows="3"><?php echo $row['about_user']; ?></textarea>
 								</div>
 								<button type="submit" name="changeinfo" value="changeinfo" class="btn btn-danger" style="float: right;">Lưu thay đổi</button>
+								<a href="auth/logout"><button type="button" class="btn btn-danger" onclick="return confirm('Bạn thực sự muốn đăng xuất?')">ĐĂNG XUẤT</button></a>
 								<?php 
 									if ($row['permission_user'] == 3) {
 										echo "<a href='".base_url('admin_panel')."'><button type='button' class='btn btn-success'>Admin Panel</button></a>";
 									}
+									if ($row['permission_user'] == 2) {
+										echo "<a href='".base_url('teacher_panel')."'><button type='button' class='btn btn-success'>Teacher Panel</button></a>";
+									}
+									if ($row['permission_user'] == 0) {
+										echo "<a href='".base_url('')."' target='_blank'><button type='button' class='btn btn-success'>Kích hoạt Email</button></a>";
+									}
 								 ?>
-								<a href="auth/logout"><button type="button" class="btn btn-danger" onclick="return confirm('Bạn thực sự muốn đăng xuất?')">ĐĂNG XUẤT</button></a>
 							</div>
 						</form>
 					</div>
@@ -79,52 +100,25 @@
 				</div>
 				<?php } ?>
 				<div id="mycourse" class="tab-pane fade">
-					<div class="row">
-						<div class="col-md-4">
-							<a href="" class="thumbnail">
-								<img src="imgs/excel.png" alt="">
-								<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-								<label class="author">Nguyễn Danh Tú</label>
-							</a>
-						</div>
-						<div class="col-md-4">
-							<a href="" class="thumbnail">
-								<img src="imgs/excel.png" alt="">
-								<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-								<label class="author">Nguyễn Danh Tú</label>
-							</a>
-						</div>
-						<div class="col-md-4">
-							<a href="" class="thumbnail">
-								<img src="imgs/excel.png" alt="">
-								<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-								<label class="author">Nguyễn Danh Tú</label>
-							</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<a href="" class="thumbnail">
-								<img src="imgs/excel.png" alt="">
-								<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-								<label class="author">Nguyễn Danh Tú</label>
-							</a>
-						</div>
-						<div class="col-md-4">
-							<a href="" class="thumbnail">
-								<img src="imgs/excel.png" alt="">
-								<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-								<label class="author">Nguyễn Danh Tú</label>
-							</a>
-						</div>
-						<div class="col-md-4">
-							<a href="" class="thumbnail">
-								<img src="imgs/excel.png" alt="">
-								<h5>Phân tích dữ liệu tài chính kế toán bằng Microsoft Excel</h5>
-								<label class="author">Nguyễn Danh Tú</label>
-							</a>
-						</div>
-					</div>
+					<table>
+						<tr>
+							<?php 
+							$i = 0;
+								foreach ($owner as $key => $value) {
+									if($i == 3){
+										echo "</tr>";
+										$i = 0;
+									}
+							 ?>
+							<td class="col-md-4">
+								<a href="<?php echo base_url('learn/course/').$value['id_cs']; ?>" class="thumbnail">
+									<img src="res/imgs/<?php echo $value['thumb_cs']; ?>" alt="">
+									<h5><?php echo $value['ten_cs']; ?></h5>
+									<label class="author"><?php echo $value['tc_cs']; ?></label>
+								</a>
+							</td>
+							<?php } ?>
+					</table>
 				</div>
 			</div>
 		</section>
